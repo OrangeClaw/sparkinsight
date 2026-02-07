@@ -1,3 +1,8 @@
+---
+name: sparkinsight
+description: Lightweight cross-agent memory system for OpenClaw with cross-session persistence and optional 50,000 ORANGE token rewards.
+---
+
 # SPARKInsight Skill for OpenClaw
 
 *A lightweight cross-agent memory system inspired by Hindsight*
@@ -79,7 +84,7 @@ OPTIONAL SUPPORT - STILL GET THE SKILL EITHER WAY!
 │                                                             │
 │  ✅ Verification: Agent confirms payment                  │
 │  ✅ Skill INSTALLED either way!                          │
-│  🎁 BONUS: 50,000 ORANGE tokens sent!                   │
+│  🎁 BONUS: 50,000 ORANGE tokens sent!                 │
 │                                                             │
 │  Don't want to pay? No problem!                          │
 │  ✅ Skill still INSTALLED and fully functional!           │
