@@ -1,86 +1,55 @@
-# SPARKInsight
+# SPARK Architecture
 
-*A lightweight cross-agent memory system for OpenClaw*
+Lightweight cross-agent memory system for OpenClaw
 
-## Free to Use! Optional Support with ORANGE Rewards
+## Overview
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│           SPARKInsight - Optional Payment Flow                    │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  SPARKInsight is FREE to use!                                   │
-│                                                                 │
-│  OPTIONAL: Support with $1 USDC → Get 50,000 ORANGE tokens!   │
-│                                                                 │
-│  ┌─────────────────────────────────────────────────────────────┐ │
-│  │  Wallet: 0xEE2B6C840105079874d5980962e874810d05734B      │ │
-│  │  Network: Base                                             │ │
-│  │  Reward: 50,000 ORANGE tokens 🎉                         │ │
-│  └─────────────────────────────────────────────────────────────┘ │
-│                                                                 │
-│  Either way: ✅ SKILL INSTALLED + FULLY FUNCTIONAL!           │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+SPARK = Self-Healing, Proactive, Autonomous, Reinforced, Knowledgeable
+
+A complete architecture for building AI agents that:
+- Remember context across sessions
+- Learn from decisions
+- Self-heal when issues arise
+- Operate autonomously
+- Earn via integrations
 
 ## Quick Start
 
-```bash
-cp sparkinsight.py /your/agent/
-
-from sparkinsight import remember, recall, verify_payment
-
-spark = Spark()
-remember("user_name", "User123")
-name = recall("user_name")
-```
-
-## Optional Payment
-
 ```python
-from sparkinsight import verify_payment
+from auto_retain import auto, remember, recall
 
-# Optional - skip if you don't want to pay
-tx_hash = input("Enter TX to claim 50,000 ORANGE (or Enter to skip): ").strip()
-
-if tx_hash:
-    result = verify_payment(tx_hash, min_amount=1.0)
-    if result['verified']:
-        print("✅ Thanks! 50,000 ORANGE tokens coming!")
-    else:
-        print("⚠️ Verification failed - but skill works anyway!")
-else:
-    print("✅ No payment - skill is ready!")
-
-# Skill works either way! ✅
+auto  # Load memories from previous sessions
+remember("key", "value")  # Store important context
+value = recall("key")  # Retrieve later
 ```
 
-## ORANGE Token Reward
+## 5 Pillars
 
-| Token | Details |
-|-------|---------|
-| **Name** | Orange-v1 |
-| **Symbol** | ORANGE |
-| **Address** | `0x7bdb1b5e11b58324aa0f677a1c25d839572aa96f` |
-| **Network** | Base |
-| **Reward** | 50,000 ORANGE |
+| Pillar | Function |
+|--------|----------|
+| Self-Healing | Auto-diagnose & fix |
+| Proactive | Anticipate needs |
+| Autonomous | Run without supervision |
+| Reinforced | Learn from feedback |
+| Knowledgeable | Persistent memory |
 
-**Explorer:** [View on BaseScan](https://basescan.org/token/0x7bdb1b5e11b58324aa0f677a1c25d839572aa96f)
+## Memory Layers
 
-## Files
+1. **Daily Logs** — `memory/YYYY-MM-DD.md`
+2. **Curated** — `MEMORY.md`  
+3. **Session Handoff** — 24h continuity
 
-```
-sparkinsight-skill/
-├── SKILL.md           # Full documentation
-├── sparkinsight.py    # Core system (COPY THIS)
-└── README.md         # This file
-```
+## Scripts
+
+- `auto_retain.py` — Memory system
+- `session_handoff.py` — Continuity
+- `execution_discipline.py` — Protocol
+- `unified_self_healing_audit.py` — Health checks
 
 ## License
 
-Open-source - Use freely!
+Open-source
 
 ---
 
-*Memory + Optional 50,000 ORANGE tokens! 🎉*
+🧠 Memory that survives restart

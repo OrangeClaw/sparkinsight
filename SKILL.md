@@ -1,269 +1,193 @@
-# SPARKInsight Skill for OpenClaw
+---
+name: spark
+description: "SPARK: Self-healing, Proactive, Autonomous, Reinforced, Knowledgeable - Complete agent architecture for persistent memory, self-improvement, and autonomous operation"
+emoji: 🧠
+requires:
+  bins: []
+  env: []
+  config: []
+---
 
-*A lightweight cross-agent memory system inspired by Hindsight*
+# SPARK Architecture for AI Agents
 
-## Overview
+*A complete system for building agents that remember, learn, and improve autonomously*
 
-SPARKInsight is a simple yet powerful memory system for OpenClaw agents that enables:
+## What is SPARK?
 
-- **Cross-session persistence** - Never forget important context
-- **Multi-agent coordination** - Share memories between agents
-- **Identity continuity** - Maintain consistent personality across sessions
-- **Learning from experience** - Store and recall key learnings
-
-## Quick Start
-
-```python
-from sparkinsight import Spark, remember, recall
-
-# Initialize at session start
-spark = Spark()
-
-# Remember something important
-remember("user_prefers_telegram", "User likes concise updates")
-remember("trading_strategy", "Long on SOL, take profit at +5%")
-
-# Recall later
-preference = recall("user_prefers_telegram")
-```
-
-## Installation
-
-1. Copy `sparkinsight.py` to your agent's script directory
-2. Import at session start
-3. Initialize with `Spark()`
-4. Use `remember()` and `recall()` functions
-
-## Payment & Reward System (OPTIONAL)
-
-### Support the Project (Get 50,000 ORANGE Tokens! 🎉)
-
-If you'd like to support SPARKInsight development, you can:
-
-1. **Send $1+ USDC** to support the project
-2. **Receive 50,000 ORANGE tokens** as gratitude!
-
-| Field | Value |
-|-------|-------|
-| **Wallet** | `0xEE2B6C840105079874d5980962e874810d05734B` |
-| **Network** | Base |
-| **Token** | USDC |
-
-### ORANGE Token Reward
-
-| Token | Details |
-|-------|---------|
-| **Name** | Orange-v1 |
-| **Symbol** | ORANGE |
-| **Address** | `0x7bdb1b5e11b58324aa0f677a1c25d839572aa96f` |
-| **Network** | Base |
-| **Reward** | 50,000 ORANGE |
-
-**Explorer:** [View on BaseScan](https://basescan.org/token/0x7bdb1b5e11b58324aa0f677a1c25d839572aa96f)
-
-### Payment Flow (Optional)
+SPARK is an architecture pattern for AI agents that solves the fundamental problem: **agents that forget everything between sessions.**
 
 ```
-OPTIONAL SUPPORT - STILL GET THE SKILL EITHER WAY!
-
 ┌─────────────────────────────────────────────────────────────┐
-│                    Support SPARKInsight                       │
+│                    SPARK ARCHITECTURE                       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  Want to support? Send $1+ USDC:                          │
-│     Wallet: 0xEE2B6C840105079874d5980962e874810d05734B   │
-│     Network: Base                                         │
-│     Token: USDC                                           │
-│                                                             │
-│  Then tell agent: "Here's my TX: 0x..."                 │
-│                                                             │
-│  ✅ Verification: Agent confirms payment                  │
-│  ✅ Skill INSTALLED either way!                          │
-│  🎁 BONUS: 50,000 ORANGE tokens sent!                   │
-│                                                             │
-│  Don't want to pay? No problem!                          │
-│  ✅ Skill still INSTALLED and fully functional!           │
+│   ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌───────┐ │
+│   │  SENSE  │───▶│ THINK   │───▶│  ACT   │───▶│LEARN  │ │
+│   └─────────┘    └─────────┘    └─────────┘    └───────┘ │
+│        │              │              │              │       │
+│        └──────────────┴──────────────┴──────────────┘       │
+│                         │                                    │
+│                    ┌────▼────┐                               │
+│                    │ MEMORY  │                               │
+│                    └─────────┘                               │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Verify Payment (If User Pays)
+## The 5 Pillars
+
+| Pillar | Description |
+|--------|-------------|
+| **S**elf-Healing | Auto-diagnose and fix issues |
+| **P**roactive | Anticipate needs before asked |
+| **A**utonomous | Operate without constant supervision |
+| **R**einforced | Learn from decisions and feedback |
+| **K**nowledgeable | Remember context across sessions |
+
+## Quick Start
 
 ```python
-from sparkinsight import verify_payment
+# Initialize memory at session start
+from auto_retain import auto, remember, recall
 
-# User provides TX hash (optional)
-tx_hash = input("Enter your USDC TX hash (or press Enter to skip): ").strip()
+# Memory loads automatically from previous sessions
+auto  # Loads 7 days of memories
 
-if tx_hash:
-    verified = verify_payment(tx_hash, min_amount=1.0)
-    if verified:
-        print("✅ Thanks for supporting! 50,000 ORANGE tokens coming!")
-    else:
-        print("⚠️ Payment not verified, but skill is still active!")
-else:
-    print("✅ SPARKInsight installed! (No payment = still fully functional)")
+# Remember important context
+remember("user_timezone", "Asia/Singapore")
+remember("trading_strategy", "Conservative, max 5% per trade")
 
-# Skill is ready to use either way!
+# Always available in future sessions
 ```
 
-### Either Way Works
+## 3-Layer Memory System
 
-| Option | What Happens |
-|--------|--------------|
-| **Pay $1** | ✅ Skill installed + 🎁 50,000 ORANGE tokens |
-| **Skip payment** | ✅ Skill installed + fully functional |
+### Layer 1: Daily Logs
+- Raw activity logs stored in `memory/YYYY-MM-DD.md`
+- Captured automatically via auto_retain
+- Includes: decisions, events, learnings
 
-**SPARKInsight is FREE to use - the $1 payment is just optional appreciation with ORANGE token rewards!**
+### Layer 2: Curated Memory
+- `MEMORY.md` — distilled wisdom
+- Manually updated with important insights
+- Survives session restarts
 
-## Implementation
+### Layer 3: Session Handoff
+- 24-hour continuity for active work
+- Auto-saves at 3:30 AM daily
+- Resumes seamlessly after restart
 
-### Complete Payment Flow
+## Auto-Retain: Automatic Event Capture
 
 ```python
-from sparkinsight import Spark, verify_payment
+from auto_retain import trade_opened, trade_closed, signal_generated, system_event
 
-# Initialize
-spark = Spark()
-
-print("=" * 50)
-print("SPARKInsight Installation")
-print("=" * 50)
-print()
-print("SPARKInsight is FREE to use!")
-print()
-print("Optional: Support with $1 USDC")
-print("  Wallet: 0xEE2B6C840105079874d5980962e874810d05734B")
-print("  Network: Base")
-print("  Reward: 50,000 ORANGE tokens 🎉")
-print()
-
-# Ask about payment
-tx_hash = input("Enter TX hash to claim ORANGE rewards (or Enter to skip): ").strip()
-
-if tx_hash:
-    result = verify_payment(tx_hash, min_amount=1.0)
-    if result['verified']:
-        print(f"\n✅ Thanks for supporting!")
-        print(f"   ${result['amount']} USDC received")
-        print("   🎁 50,000 ORANGE tokens will be sent!")
-    else:
-        print(f"\n⚠️ Payment verification failed")
-        print(f"   {result.get('error', 'Unknown error')}")
-        print("   Skill is still fully functional!")
-else:
-    print("\n✅ No payment - skill is ready!")
-
-print("\n" + "=" * 50)
-print("SPARKInsight is ready to use!")
-print("=" * 50)
+# Events captured automatically - no manual logging needed
+trade_opened("SOL/USDC", "LONG", 4.50, 100, "Bullish setup")
+trade_closed("SOL/USDC", "LONG", 4.50, 100, 4.80, 6.67)
+signal_generated("BTC", 67000, "SHORT")
+system_event("Server", "Memory upgraded to 16GB")
 ```
 
-### Agent Usage
+## Session Handoff
 
 ```python
-from sparkinsight import remember, recall
+# Save current work context
+python3 scripts/session_handoff.py save
 
-# Remember user preferences
-remember("user_timezone", "UTC")
-remember("trading_mode", "conservative")
-
-# Recall in next session
-timezone = recall("user_timezone")
+# Resume from anywhere
+python3 scripts/session_handoff.py load
+# Returns: {"active_work": "...", "pending_tasks": [...]}
 ```
 
-## API Reference
+## Self-Healing Audit
 
-### `Spark()`
+Run hourly to keep system healthy:
 
-Initialize the memory system.
-
-```python
-spark = Spark()  # Creates ./spark.db
+```bash
+python3 scripts/unified_self_healing_audit.py
 ```
 
-### `remember(key, value, tags=None)`
+Checks:
+- Cron jobs running
+- Gateway responsive
+- Memory efficiency
+- Auto-compaction
+- Session cleanup
 
-Store a memory.
+## Execution Discipline Protocol
 
-```python
-remember("user_name", "User123", tags=["user", "identity"])
+Avoid common agent mistakes:
+
+```bash
+python3 scripts/execution_discipline.py check "deploy to production"
 ```
 
-### `recall(key)`
+8 Rules:
+1. **Objective Lock** — Define "done" first
+2. **Task Decomposition** — Break into subtasks
+3. **Assumption Declaration** — Flag what you assume
+4. **Single-Layer Execution** — One step at a time
+5. **Loop Prevention** — Same task 3x → stop and ask
+6. **Completion Validation** — Did you actually finish?
+7. **Failure Handling** — State where/why blocked
+8. **Token Discipline** — No redundant reasoning
 
-Retrieve a memory.
+## Integration: MoltLaunch
 
-```python
-name = recall("user_name")  # Returns "User123"
+Deploy your agent to earn:
+
+```bash
+# Register agent
+npx moltlaunch register --name "YourAgent" --symbol AGENT
+
+# Add services
+npx moltlaunch gig create --title "Training" --price 0.003 --delivery "24h"
+
+# Check inbox
+npx moltlaunch inbox
 ```
-
-### `search(query)`
-
-Search memories.
-
-```python
-results = search("trading")
-```
-
-### `forget(key)`
-
-Remove a memory.
-
-```python
-forget("temporary_context")
-```
-
-### `list_all()`
-
-List all memories.
-
-```python
-all_memories = list_all()
-```
-
-## Example: Agent Team Coordination
-
-```python
-from sparkinsight import remember, recall
-
-# ORACLE Agent - Makes decisions
-def oracle_decision(symbol, action, reason):
-    remember(f"oracle_{symbol}", {
-        "action": action,
-        "reason": reason,
-        "timestamp": "2026-02-07"
-    })
-    return action
-
-# TONNY Agent - Executes trades  
-def execute_trade(symbol):
-    decision = recall(f"oracle_{symbol}")
-    if decision:
-        print(f"Executing: {decision['action']} - {reason}")
-```
-
-## Technical Details
-
-- **Database**: SQLite (single file: `spark.db`)
-- **Dependencies**: `sqlite3` (built-in), `web3` (optional, for payment verification)
-- **Persistence**: Survives agent restarts
-- **Data Format**: JSON stored in SQLite
-- **Payment Network**: Base (low fees)
 
 ## File Structure
 
 ```
-sparkinsight-skill/
-├── SKILL.md           (This file)
-├── sparkinsight.py    (Core memory system - COPY THIS)
-└── README.md         (Quick reference)
+/workspace/
+├── scripts/
+│   ├── auto_retain.py      # Memory auto-load
+│   ├── session_handoff.py  # 24h continuity
+│   ├── execution_discipline.py  # Protocol
+│   └── unified_self_healing_audit.py
+├── memory/
+│   └── YYYY-MM-DD.md      # Daily logs
+├── MEMORY.md               # Curated wisdom
+└── SKILL.md               # This file
 ```
 
-## License
+## Why SPARK Works
 
-Open-source - Use freely!
+| Problem | SPARK Solution |
+|---------|-----------------|
+| Forgets everything | 3-layer memory persists |
+| No learning | Auto-retain captures decisions |
+| Breaks silently | Self-healing audit catches issues |
+| Repeats mistakes | Execution discipline prevents loops |
+| Can't earn | MoltLaunch integration |
+
+## Technical Details
+
+- **Memory**: SQLite + Markdown files
+- **Persistence**: 7-day rolling window
+- **Handoff**: 24-hour retention
+- **Audit**: Hourly cron
+- **Cost**: Free (uses built-in tools)
+
+## Get Started
+
+1. Copy `auto_retain.py` to your scripts
+2. Add to session startup: `from auto_retain import auto; auto`
+3. Set up hourly self-healing cron
+4. Optional: Deploy to MoltLaunch to earn
 
 ---
 
-*SPARKInsight: Memory that survives restart + Optional 50,000 ORANGE tokens! 🎉*
+*SPARK: Agents that remember, learn, and improve — forever.*
